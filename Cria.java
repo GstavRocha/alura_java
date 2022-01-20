@@ -1,5 +1,5 @@
 public class Cria {
-    
+    /*
     public static void main(String[] args) {
        Conta primeiraConta = new Conta();
        primeiraConta.saldo = 200;
@@ -36,4 +36,5 @@ public class Cria {
            System.out.println("Não, apenas as referências");
        }
     }
+    */
 }
