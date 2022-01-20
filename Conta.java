@@ -1,9 +1,11 @@
+import java.util.Scanner;
 public class Conta {
+    Scanner entra = new Scanner(System.in);
     // atributos...
     double saldo;
     int  agencia;
     int numero;
-    String titular;
+    Cliente titular;
     
     // Métodos pode ser considerado "maneira de fazer algo".
     /*
@@ -12,7 +14,36 @@ public class Conta {
 
     this é opcional e refere-se a conta qual ele está invocando.
      */
-    void deposita(double valor){
+    public void deposita(double valor){
         this.saldo = this.saldo + valor;
+    }
+    /*
+    public boolean sacar(double valor){
+        System.out.println("Digite o valor do saque ");
+        valor = entra.nextDouble();
+        if(this.saldo >= valor){
+            this.saldo -= valor;
+            return true;
+        }else{
+            System.out.println("Você não tem saldo "+this.saldo);
+            return false;
+        }
+    
+       
+    }
+     */
+    public boolean transferencia(double valorD, Conta destino){
+        System.out.println("Digite o valor da Transferência: ");
+        valorD = entra.nextDouble();
+        entra.close();
+        if(this.saldo >= valorD){
+            this.saldo -= valorD;
+            destino.deposita(valorD);
+            System.out.println(this.titular+" realizou uma transferência de "+this.saldo+" para "+destino.titular);
+            return true;
+        }else{
+            System.out.println("Você não tem saldo para realizar esta transferência. ");
+            return false;
+        }
     }
 }
